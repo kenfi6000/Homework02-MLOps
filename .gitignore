@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.cache/
+models/*
+!models/.gitkeep
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.venv311/
+*.egg-info/
+.coverage
+htmlcov/
+Homework02.md

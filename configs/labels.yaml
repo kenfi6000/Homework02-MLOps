@@ -1,9 +1,9 @@
 label_sets:
-  - name: Common Topics
-    labels:
-      - sports
-      - politics
-      - technology
-      - finance
-      - health
-      - education
+- name: Common Topics
+  labels:
+  - sports
+  - politics
+  - technology
+  - finance
+  - health
+  - education

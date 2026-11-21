@@ -26,7 +26,36 @@ if not ready_models:
 if not label_sets:
     st.error("No saved label set is available.")
 
-text = st.text_area("Text to classify", height=180)
+examples = {
+    "Sports": (
+        "The team won the championship after scoring the decisive goal in the final minute."
+    ),
+    "Politics": (
+        "The parliament approved a new government policy after a lengthy legislative debate."
+    ),
+    "Technology": (
+        "The company introduced a new artificial intelligence chip for faster data processing."
+    ),
+    "Finance": (
+        "The stock market rose after investors reacted positively to the latest earnings report."
+    ),
+    "Health": (
+        "Doctors recommended a balanced diet and regular exercise to improve patient outcomes."
+    ),
+    "Education": (
+        "The university opened a new science program for undergraduate students."
+    ),
+}
+
+example_name = st.selectbox("Example text", list(examples))
+if st.button("Load example"):
+    st.session_state["classification_text"] = examples[example_name]
+
+text = st.text_area(
+    "Text to classify",
+    key="classification_text",
+    height=180,
+)
 model_names = {model["name"]: model["id"] for model in ready_models}
 selected_model_name = st.selectbox("Model", list(model_names), disabled=not ready_models)
 label_set_names = [item["name"] for item in label_sets]
